@@ -1,0 +1,118 @@
+<extends src="partials/base-layout.html">
+  <block name="content">
+    <div class="l-main">
+      <main class="l-container">
+        <h1 class="l-page-title">Exercices - Timeline GSAP</h1>
+
+        <section class="section-theory">
+          <h2>Rappel théorique - Timeline GSAP</h2>
+          <a
+            href="https://www.notion.so/eikon-imd/GSAP-4-Timeline-29ba3ba0778949a99532ceeec3d1ea69?source=copy_link"
+            target="_blank"
+            >Lien vers le support de cours sur les animations GSAP</a
+          >
+
+          <h3>Qu'est-ce qu'une Timeline ?</h3>
+          <p>
+            Une Timeline GSAP est un conteneur qui permet de séquencer et
+            synchroniser plusieurs animations. Elle offre un contrôle précis du
+            timing et permet de créer des animations complexes avec des délais
+            relatifs entre les éléments.
+          </p>
+
+          <h3>Créer une Timeline</h3>
+          <pre><code>// Créer une timeline vide
+const tl = gsap.timeline();
+
+// Créer une timeline avec des options
+const tl = gsap.timeline({
+  repeat: 2,        // Répéter 2 fois
+  yoyo: true,       // Aller-retour
+  delay: 1,         // Délai avant le début
+  paused: true      // Commencer en pause
+});</code></pre>
+
+          <h3>Ajouter des animations à une Timeline</h3>
+          <p>Les animations s'ajoutent en séquence par défaut :</p>
+          <pre><code>const tl = gsap.timeline();
+
+// Les animations se déclenchent l'une après l'autre
+tl.to(".box1", { x: 100, duration: 1 })
+  .to(".box2", { y: 100, duration: 1 })
+  .to(".box3", { rotation: 360, duration: 1 });</code></pre>
+
+          <h3>Contrôler le timing relatif</h3>
+          <p>
+            Le troisième paramètre permet de contrôler quand l'animation démarre
+            :
+          </p>
+
+          <h4>Position relative</h4>
+          <pre><code>tl.to(".box1", { x: 100, duration: 1 })
+  .to(".box2", { y: 100, duration: 1 }, "-=0.5")  // Démarre 0.5s avant la fin de la précédente
+  .to(".box3", { rotation: 360, duration: 1 }, "+=0.2");  // Démarre 0.2s après la fin</code></pre>
+
+          <h4>Position absolue</h4>
+          <pre><code>tl.to(".box1", { x: 100, duration: 1 })
+  .to(".box2", { y: 100, duration: 1 }, 0.5)  // Démarre à 0.5s depuis le début de la timeline
+  .to(".box3", { rotation: 360, duration: 1 }, 2);  // Démarre à 2s depuis le début</code></pre>
+
+          <h4>Labels pour organiser</h4>
+          <pre><code>tl.addLabel("start")
+  .to(".box1", { x: 100, duration: 1 })
+  .addLabel("middle")
+  .to(".box2", { y: 100, duration: 1 })
+  .to(".box3", { rotation: 360, duration: 1 }, "middle+=0.5");  // 0.5s après le label "middle"</code></pre>
+        </section>
+
+        <section>
+          <div class="l-content-wrapper">
+            <h2 class="l-h2">Consigne</h2>
+            <p>
+              Depuis <code>js/timeline.js</code>, écrivez le code JavaScript
+              pour créer des animations avec des timelines GSAP selon les
+              indications de chaque exercice.
+            </p>
+            <p>
+              <b
+                >Chaque exercice doit utiliser une timeline pour séquencer les
+                animations !</b
+              >
+            </p>
+          </div>
+          <div class="l-content-wrapper">
+            <h2 class="l-h2">Exemple</h2>
+            <pre><code>// Créer une timeline et animer plusieurs éléments en séquence
+const tl = gsap.timeline();
+tl.to("#js-timeline-1", { x: 100, duration: 1 })
+  .to("#js-timeline-1", { y: 50, duration: 0.5 }, "-=0.2"); // Commence 0.2s avant la fin de la précédente</code></pre>
+          </div>
+        </section>
+
+        <section class="exercices-container" id="exercice-timeline">
+          <article class="item exercise" id="js-timeline-1">
+            <div class="box box-1">1</div>
+          </article>
+
+          <article class="item exercise" id="js-timeline-2">
+            <div class="box box-2">2</div>
+          </article>
+
+          <article class="item exercise" id="js-timeline-3">
+            <div class="box box-3">3</div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <footer class="l-footer">
+      <div class="l-container">
+        <p>
+          <a href="index.html">Animations GSAP</a>
+          ⬅️ Exercice précédent
+        </p>
+        <p></p>
+      </div>
+    </footer>
+  </block>
+</extends>

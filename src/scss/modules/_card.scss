@@ -46,12 +46,43 @@
       background: linear-gradient(325deg, #a855f7 0%, #6366f1 100%);
     }
   }
+
+  &#exercice-timeline {
+    .item {
+      position: relative;
+      grid-row: span 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      color: black;
+    }
+
+    .item:nth-child(even) {
+      background: linear-gradient(325deg, #a855f7 0%, #db2777 100%);
+    }
+
+    .item:nth-child(odd) {
+      background: linear-gradient(325deg, #a855f7 0%, #6366f1 100%);
+    }
+
+    .box {
+      width: 20%;
+      aspect-ratio: 1 / 1;
+      opacity: 0.35;
+      background-color: white;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
 
 @media (min-width: 556px) {
   .exercices-container {
     grid-template-columns: repeat(2, 1fr);
-
     gap: 1.5rem;
   }
 }
@@ -60,6 +91,10 @@
   .exercices-container {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
+
+    &#exercice-timeline {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
 
