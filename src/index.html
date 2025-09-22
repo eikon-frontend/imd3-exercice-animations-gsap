@@ -2,43 +2,204 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>exercises imd3 - animations GSAP</title>
+    <title>imd3 - Exercices d'animations GSAP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="scss/main.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="exercises-container">
-      <header class="header">
-        <h2>exercices</h2>
-        <h1>animations GSAP</h1>
-      </header>
+    <header class="l-header">
+      <nav class="l-container">
+        <ul>
+          <li><a href="index.html">Animations GSAP</a></li>
+        </ul>
+      </nav>
+    </header>
 
-      <div class="item exercise" id="js-exercise-1">
-        <p>1</p>
-      </div>
-      <div class="item exercise" id="js-exercise-2">
-        <p>2</p>
-      </div>
-      <div class="item exercise" id="js-exercise-3">
-        <p>3</p>
-      </div>
-      <div class="item exercise" id="js-exercise-4">
-        <p>4</p>
-      </div>
-      <div class="item exercise" id="js-exercise-5">
-        <p>5</p>
-      </div>
-      <div class="item exercise" id="js-exercise-6">
-        <p>6</p>
-      </div>
-      <div class="item exercise" id="js-exercise-7">
-        <p>7</p>
-      </div>
-      <div class="item exercise" id="js-exercise-8">
-        <p>8</p>
-        <button>bouton</button>
-      </div>
+    <div class="l-main">
+      <main class="l-container">
+        <h1 class="l-page-title">Exercices - Animations GSAP</h1>
+
+        <section class="section-theory">
+          <h2>Rappel théorique</h2>
+          <a
+            href="https://www.notion.so/eikon-imd/GSAP-2-Basics-0a05aae687ce4b1bac6d6e1c6cd023f5?source=copy_link"
+            target="_blank"
+            >Lien vers le support de cours sur les animations GSAP</a
+          >
+
+          <h3>Qu'est-ce que GSAP ?</h3>
+          <p>
+            GSAP (GreenSock Animation Platform) est une bibliothèque JavaScript
+            ultra-performante pour créer des animations fluides et
+            professionnelles. Elle est considérée comme l'une des meilleures
+            solutions pour l'animation web.
+          </p>
+
+          <h3>Animer un élément</h3>
+          <p>La syntaxe de GSAP s’articule autour de quelques concepts.</p>
+          <pre><code>// gsap.direction( qui, { comment } );
+
+gsap.to(".box", {
+  x: "-50px",
+  duration: 2
+});
+          </code></pre>
+
+          <p>
+            Le paramètre <b><i>qui</i></b> accepte un sélecteur CSS (élément,
+            classe, ID, pseudo-classe…) ou une variable ciblant un élément ou
+            plusieurs éléments.
+          </p>
+          <p>
+            Les paramètres de l’animation sont compris entre accolades
+            <code>{ … }</code>. Il est possible d’animer plusieurs propriétés
+            CSS du ou des éléments ciblés.
+          </p>
+
+          <h3>Méthodes de base</h3>
+
+          <h4>gsap.to() - Animer vers un état</h4>
+          <pre><code>// Animer un élément vers une nouvelle position
+gsap.to(".element", {
+  duration: 2,
+  x: 100,
+  y: 50,
+  rotation: 45,
+  scale: 1.5
+});</code></pre>
+
+          <h4>gsap.from() - Animer depuis un état</h4>
+          <pre><code>// Animer un élément depuis une position initiale
+gsap.from(".element", {
+  duration: 1,
+  opacity: 0,
+  y: -50,
+  scale: 0
+});</code></pre>
+
+          <h4>gsap.fromTo() - Contrôle total</h4>
+          <pre><code>// Définir état initial ET final
+gsap.fromTo(".element",
+  { opacity: 0, scale: 0 }, // État initial
+  { opacity: 1, scale: 1, duration: 1 } // État final
+);</code></pre>
+
+          <h3>Propriétés animables courantes</h3>
+          <p>
+            Il n’existe pas de liste exhaustive des propriétés CSS pouvant être
+            animées. La documentation de GSAP indique qu’une large partie des
+            propriétés CSS peut l’être, le mieux étant de tester.
+          </p>
+          <ul>
+            <li><code>x, y</code> : Translation sur les axes X et Y</li>
+            <li><code>rotation</code> : Rotation en degrés</li>
+            <li><code>scale</code> : Mise à l'échelle (1 = taille normale)</li>
+            <li>
+              <code>opacity</code> : Transparence (0 = invisible, 1 = opaque)
+            </li>
+            <li><code>width, height</code> : Dimensions</li>
+            <li><code>backgroundColor</code> : Couleur de fond</li>
+            <li><code>duration</code> : Durée de l'animation en secondes</li>
+          </ul>
+
+          <h3>Timeline - Séquencer les animations</h3>
+          <p>
+            Il peut arriver de vouloir séquencer de multiples animations selon
+            un timing précis.
+          </p>
+          <p>
+            Bien qu'il soit possible d'utiliser la propriété
+            <code>delay</code> pour ceci, GSAP nous fournit un outil plus
+            simple: <code>gsap.timeline()</code>.
+          </p>
+          <p>
+            Une timeline est donc une sorte de container dans lequel on inscrit
+            nos diverses animations selon un timing.
+          </p>
+          <pre><code>// Créer une timeline
+const tl = gsap.timeline();
+
+// Ajouter des animations en séquence
+tl.to(".element1", { x: 100, duration: 1 })
+  .to(".element2", { y: 50, duration: 0.5 })
+  .to(".element3", { rotation: 360, duration: 1 }, "-=0.5"); // Commence 0.5s avant la fin de la précédente</code></pre>
+        </section>
+
+        <section>
+          <div class="l-content-wrapper">
+            <h2 class="l-h2">Consigne</h2>
+            <p>
+              Depuis <code>js/main.js</code>, écrivez le code JavaScript pour
+              créer des animations GSAP selon les indications de chaque
+              exercice.
+            </p>
+            <p>
+              <b
+                >N'oubliez pas d'installer la librairie GSAP dans un premier
+                temps !</b
+              >
+            </p>
+          </div>
+          <div class="l-content-wrapper">
+            <h2 class="l-h2">Exemple</h2>
+            <pre><code>// gsap.to("#js-exercise-1", { x: 100, duration: 2 }); // L'élément se déplace de 100px vers la droite en 2 secondes</code></pre>
+          </div>
+        </section>
+
+        <section class="exercices-container" id="exercice-animations">
+          <article class="item exercise" id="js-exercise-1">
+            <h2>1</h2>
+          </article>
+
+          <article class="item exercise" id="js-exercise-2">
+            <h2>2</h2>
+          </article>
+
+          <article class="item exercise" id="js-exercise-3">
+            <h2>3</h2>
+          </article>
+
+          <article class="item exercise" id="js-exercise-4">
+            <h2>4</h2>
+          </article>
+
+          <article class="item exercise" id="js-exercise-5">
+            <h2>5</h2>
+          </article>
+
+          <article class="item exercise" id="js-exercise-6">
+            <h2>6</h2>
+          </article>
+
+          <article class="item exercise" id="js-exercise-7">
+            <h2>7</h2>
+          </article>
+
+          <article class="item exercise" id="js-exercise-8">
+            <h2>8</h2>
+            <button>Bouton</button>
+          </article>
+        </section>
+      </main>
     </div>
+
+    <footer class="l-footer">
+      <div class="l-container">
+        <p></p>
+        <p>
+          📚
+          <a href="https://gsap.com/docs/v3/" target="_blank"
+            >Documentation GSAP</a
+          >
+        </p>
+      </div>
+    </footer>
 
     <script src="js/main.js" type="module"></script>
   </body>

@@ -1,0 +1,34 @@
+:root {
+  --color-text-main: #333;
+  --color-code-bg: #020236;
+  --color-code-content: #f8eac7;
+  --color-theory: #0f527e;
+  --color-theory-bg: #f9f9f9;
+  --color-code: #e8e8e8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+video {
+  display: block;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  color: var(--color-text-main);
+}
+
+p {
+  font-size: 1.125rem;
+  padding: 0;
+  margin: 0;
+}
