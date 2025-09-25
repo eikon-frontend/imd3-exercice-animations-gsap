@@ -1,0 +1,182 @@
+<extends src="partials/base-layout.html">
+  <block name="content">
+    <div class="l-main">
+      <main class="l-container">
+        <h1 class="l-page-title">Exercices - Scroll Trigger GSAP</h1>
+
+        <section class="section-theory">
+          <h2>Rappel théorique - Scroll Trigger GSAP</h2>
+          <a
+            href="https://www.notion.so/eikon-imd/GSAP-ScrollTrigger-2-Basics-caaa789b886a44d594e0fe27b0192197?source=copy_link"
+            target="_blank"
+            >Lien vers le support de cours sur le ScrollTrigger GSAP</a
+          >
+
+          <h3>Qu'est-ce que ScrollTrigger ?</h3>
+          <p>
+            ScrollTrigger est un plugin GSAP qui permet de déclencher des
+            animations en fonction de la position de scroll de la page. Il offre
+            un contrôle précis sur quand et comment les animations se
+            déclenchent lors du défilement.
+          </p>
+
+          <h3>Installation et utilisation de base</h3>
+          <pre><code>// Enregistrer le plugin
+gsap.registerPlugin(ScrollTrigger);
+
+// Animation simple déclenchée au scroll
+gsap.to(".box", {
+  x: 100,
+  duration: 2,
+  scrollTrigger: ".box" // Se déclenche quand .box entre dans le viewport
+});</code></pre>
+
+          <h3>Configuration des points de contact (trigger points)</h3>
+          <p>
+            ScrollTrigger utilise des points de déclenchement pour contrôler les
+            animations :
+          </p>
+          <pre><code>gsap.to(".box", {
+  x: 100,
+  duration: 2,
+  scrollTrigger: {
+    trigger: ".box",        // Élément qui déclenche l'animation
+    start: "top bottom",    // Quand le top de .box touche le bottom du viewport
+    end: "bottom top",      // Quand le bottom de .box touche le top du viewport
+    scrub: true,            // Animation liée au scroll
+    markers: true           // Afficher les marqueurs (debug)
+  }
+});</code></pre>
+
+          <h3>Options de déclenchement</h3>
+
+          <h4>Points de contact (start/end)</h4>
+          <pre><code>// Format: "trigger viewport"
+start: "top bottom"     // Top de l'élément touche le bottom du viewport
+start: "center center"  // Centre de l'élément au centre du viewport
+start: "bottom top"     // Bottom de l'élément touche le top du viewport
+
+// Avec des offsets
+start: "top bottom-=100px"  // 100px avant que le top touche le bottom</code></pre>
+        </section>
+
+        <section>
+          <div class="l-content-wrapper">
+            <h2 class="l-h2">Consigne</h2>
+            <p>
+              Depuis <code>js/scroll-trigger.js</code>, écrivez le code
+              JavaScript pour créer des animations au scroll avec le plugin
+              ScrollTrigger de GSAP selon les indications de chaque exercice.
+            </p>
+            <p>
+              Conseil:
+              <b
+                >Utiliser les 'markers' pour visualiser les points de
+                contact.</b
+              >
+            </p>
+          </div>
+          <div class="l-content-wrapper">
+            <h2 class="l-h2">Exemple</h2>
+            <pre><code>// Animation déclenchée par le scroll avec des marqueurs pour débugger
+gsap.to("#js-exercise-1", {
+  x: 100,
+  duration: 2,
+  scrollTrigger: {
+    trigger: "#js-exercise-1",
+    start: "top center",     // Démarre quand le top de l'élément atteint le centre du viewport
+    markers: true            // Affiche les marqueurs pour visualiser les points de contact
+  }
+});</code></pre>
+          </div>
+        </section>
+
+        <section class="exercices-container" id="exercice-scroll-trigger">
+          <div class="item brief">
+            <p>
+              <b>Exercice 1</b><br />
+              utiliser les points de contact.
+            </p>
+          </div>
+          <div class="item exercise" id="js-exercise-1">
+            <div class="box box-1 top">1</div>
+            <div class="box box-2 center">2</div>
+            <div class="box box-3 bottom">3</div>
+          </div>
+
+          <div class="item brief">
+            <p>
+              <b>Exercice 2</b><br />
+              configurer un point de contact spécifique.
+            </p>
+          </div>
+          <div class="item exercise" id="js-exercise-2">
+            <div class="box box-4">4</div>
+          </div>
+
+          <div class="item brief">
+            <p>
+              <b>Exercice 3</b><br />
+              parallax.
+            </p>
+          </div>
+          <div class="item exercise" id="js-exercise-3">
+            <div class="box box-5 bottom">5</div>
+            <div class="box box-6 bottom">6</div>
+          </div>
+
+          <div class="item brief">
+            <p>
+              <b>Exercice 4</b><br />
+              animation pas-à-pas.
+            </p>
+          </div>
+          <div class="item exercise" id="js-exercise-4">
+            <div class="box box-7">7</div>
+          </div>
+
+          <div class="item brief">
+            <p>
+              <b>🔥 Exercice 5 🔥</b><br />
+              animation pas-à-pas et timeline.
+            </p>
+          </div>
+          <div class="item exercise" id="js-exercise-3">
+            <div class="box box-8">8</div>
+            <div class="box box-9">9</div>
+          </div>
+
+          <div class="item brief">
+            <p>
+              <b>Exercice 6</b><br />
+              toggleClass.
+            </p>
+          </div>
+          <div class="item exercise" id="js-exercise-6">
+            <div class="box box-10">10</div>
+          </div>
+
+          <div class="item brief">
+            <p>
+              <b>🔥🔥 Exercice 7 🔥🔥</b><br />
+              ScrollTrigger sans animation, endTrigger.
+            </p>
+          </div>
+          <div class="item exercise" id="js-exercise-7">
+            <div class="box box-11 top">11</div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="l-footer">
+      <div class="l-container">
+        <p>
+          <a href="timeline.html">Timeline GSAP</a>
+          ⬅️ Exercice précédent
+        </p>
+        <p></p>
+      </div>
+    </footer>
+  </block>
+</extends>
