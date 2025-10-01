@@ -1,0 +1,103 @@
+<section class="section-theory">
+  <h2>Rappel théorique</h2>
+  <a
+    href="https://www.notion.so/eikon-imd/GSAP-2-Basics-0a05aae687ce4b1bac6d6e1c6cd023f5?source=copy_link"
+    target="_blank"
+    >Lien vers le support de cours sur les animations GSAP</a
+  >
+
+  <h3>Qu'est-ce que GSAP ?</h3>
+  <p>
+    GSAP (GreenSock Animation Platform) est une bibliothèque JavaScript
+    ultra-performante pour créer des animations fluides et professionnelles.
+    Elle est considérée comme l'une des meilleures solutions pour l'animation
+    web.
+  </p>
+
+  <h3>Animer un élément</h3>
+  <p>La syntaxe de GSAP s’articule autour de quelques concepts.</p>
+  <pre><code>// gsap.direction( qui, { comment } );
+
+gsap.to(".box", {
+  x: "-50px",
+  duration: 2
+});
+          </code></pre>
+
+  <p>
+    Le paramètre <b><i>qui</i></b> accepte un sélecteur CSS (élément, classe,
+    ID, pseudo-classe…) ou une variable ciblant un élément ou plusieurs
+    éléments.
+  </p>
+  <p>
+    Les paramètres de l’animation sont compris entre accolades
+    <code>{ … }</code>. Il est possible d’animer plusieurs propriétés CSS du ou
+    des éléments ciblés.
+  </p>
+
+  <h3>Méthodes de base</h3>
+
+  <h4>gsap.to() - Animer vers un état</h4>
+  <pre><code>// Animer un élément vers une nouvelle position
+gsap.to(".element", {
+  duration: 2,
+  x: 100,
+  y: 50,
+  rotation: 45,
+  scale: 1.5
+});</code></pre>
+
+  <h4>gsap.from() - Animer depuis un état</h4>
+  <pre><code>// Animer un élément depuis une position initiale
+gsap.from(".element", {
+  duration: 1,
+  opacity: 0,
+  y: -50,
+  scale: 0
+});</code></pre>
+
+  <h4>gsap.fromTo() - Contrôle total</h4>
+  <pre><code>// Définir état initial ET final
+gsap.fromTo(".element",
+  { opacity: 0, scale: 0 }, // État initial
+  { opacity: 1, scale: 1, duration: 1 } // État final
+);</code></pre>
+
+  <h3>Propriétés animables courantes</h3>
+  <p>
+    Il n’existe pas de liste exhaustive des propriétés CSS pouvant être animées.
+    La documentation de GSAP indique qu’une large partie des propriétés CSS peut
+    l’être, le mieux étant de tester.
+  </p>
+  <ul>
+    <li><code>x, y</code> : Translation sur les axes X et Y</li>
+    <li><code>rotation</code> : Rotation en degrés</li>
+    <li><code>scale</code> : Mise à l'échelle (1 = taille normale)</li>
+    <li><code>opacity</code> : Transparence (0 = invisible, 1 = opaque)</li>
+    <li><code>width, height</code> : Dimensions</li>
+    <li><code>backgroundColor</code> : Couleur de fond</li>
+    <li><code>duration</code> : Durée de l'animation en secondes</li>
+  </ul>
+
+  <h3>Timeline - Séquencer les animations</h3>
+  <p>
+    Il peut arriver de vouloir séquencer de multiples animations selon un timing
+    précis.
+  </p>
+  <p>
+    Bien qu'il soit possible d'utiliser la propriété
+    <code>delay</code> pour ceci, GSAP nous fournit un outil plus simple:
+    <code>gsap.timeline()</code>.
+  </p>
+  <p>
+    Une timeline est donc une sorte de container dans lequel on inscrit nos
+    diverses animations selon un timing.
+  </p>
+  <pre><code>// Créer une timeline
+const tl = gsap.timeline();
+
+// Ajouter des animations en séquence
+tl.to(".element1", { x: 100, duration: 1 })
+  .to(".element2", { y: 50, duration: 0.5 })
+  .to(".element3", { rotation: 360, duration: 1 }, "-=0.5"); // Commence 0.5s avant la fin de la précédente</code></pre>
+</section>

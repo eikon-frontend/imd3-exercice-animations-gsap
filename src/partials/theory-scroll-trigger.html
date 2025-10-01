@@ -1,0 +1,54 @@
+<section class="section-theory">
+  <h2>Rappel théorique - Scroll Trigger GSAP</h2>
+  <a
+    href="https://www.notion.so/eikon-imd/GSAP-ScrollTrigger-2-Basics-caaa789b886a44d594e0fe27b0192197?source=copy_link"
+    target="_blank"
+    >Lien vers le support de cours sur le ScrollTrigger GSAP</a
+  >
+
+  <h3>Qu'est-ce que ScrollTrigger ?</h3>
+  <p>
+    ScrollTrigger est un plugin GSAP qui permet de déclencher des animations en
+    fonction de la position de scroll de la page. Il offre un contrôle précis
+    sur quand et comment les animations se déclenchent lors du défilement.
+  </p>
+
+  <h3>Installation et utilisation de base</h3>
+  <pre><code>// Enregistrer le plugin
+gsap.registerPlugin(ScrollTrigger);
+
+// Animation simple déclenchée au scroll
+gsap.to(".box", {
+  x: 100,
+  duration: 2,
+  scrollTrigger: ".box" // Se déclenche quand .box entre dans le viewport
+});</code></pre>
+
+  <h3>Configuration des points de contact (trigger points)</h3>
+  <p>
+    ScrollTrigger utilise des points de déclenchement pour contrôler les
+    animations :
+  </p>
+  <pre><code>gsap.to(".box", {
+  x: 100,
+  duration: 2,
+  scrollTrigger: {
+    trigger: ".box",        // Élément qui déclenche l'animation
+    start: "top bottom",    // Quand le top de .box touche le bottom du viewport
+    end: "bottom top",      // Quand le bottom de .box touche le top du viewport
+    scrub: true,            // Animation liée au scroll
+    markers: true           // Afficher les marqueurs (debug)
+  }
+});</code></pre>
+
+  <h3>Options de déclenchement</h3>
+
+  <h4>Points de contact (start/end)</h4>
+  <pre><code>// Format: "trigger viewport"
+start: "top bottom"     // Top de l'élément touche le bottom du viewport
+start: "center center"  // Centre de l'élément au centre du viewport
+start: "bottom top"     // Bottom de l'élément touche le top du viewport
+
+// Avec des offsets
+start: "top bottom-=100px"  // 100px avant que le top touche le bottom</code></pre>
+</section>

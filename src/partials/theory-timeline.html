@@ -1,0 +1,56 @@
+<section class="section-theory">
+  <h2>Rappel théorique - Timeline GSAP</h2>
+  <a
+    href="https://www.notion.so/eikon-imd/GSAP-4-Timeline-29ba3ba0778949a99532ceeec3d1ea69?source=copy_link"
+    target="_blank"
+    >Lien vers le support de cours sur les animations GSAP</a
+  >
+
+  <h3>Qu'est-ce qu'une Timeline ?</h3>
+  <p>
+    Une Timeline GSAP est un conteneur qui permet de séquencer et synchroniser
+    plusieurs animations. Elle offre un contrôle précis du timing et permet de
+    créer des animations complexes avec des délais relatifs entre les éléments.
+  </p>
+
+  <h3>Créer une Timeline</h3>
+  <pre><code>// Créer une timeline vide
+const tl = gsap.timeline();
+
+// Créer une timeline avec des options
+const tl = gsap.timeline({
+  repeat: 2,        // Répéter 2 fois
+  yoyo: true,       // Aller-retour
+  delay: 1,         // Délai avant le début
+  paused: true      // Commencer en pause
+});</code></pre>
+
+  <h3>Ajouter des animations à une Timeline</h3>
+  <p>Les animations s'ajoutent en séquence par défaut :</p>
+  <pre><code>const tl = gsap.timeline();
+
+// Les animations se déclenchent l'une après l'autre
+tl.to(".box1", { x: 100, duration: 1 })
+  .to(".box2", { y: 100, duration: 1 })
+  .to(".box3", { rotation: 360, duration: 1 });</code></pre>
+
+  <h3>Contrôler le timing relatif</h3>
+  <p>Le troisième paramètre permet de contrôler quand l'animation démarre :</p>
+
+  <h4>Position relative</h4>
+  <pre><code>tl.to(".box1", { x: 100, duration: 1 })
+  .to(".box2", { y: 100, duration: 1 }, "-=0.5")  // Démarre 0.5s avant la fin de la précédente
+  .to(".box3", { rotation: 360, duration: 1 }, "+=0.2");  // Démarre 0.2s après la fin</code></pre>
+
+  <h4>Position absolue</h4>
+  <pre><code>tl.to(".box1", { x: 100, duration: 1 })
+  .to(".box2", { y: 100, duration: 1 }, 0.5)  // Démarre à 0.5s depuis le début de la timeline
+  .to(".box3", { rotation: 360, duration: 1 }, 2);  // Démarre à 2s depuis le début</code></pre>
+
+  <h4>Labels pour organiser</h4>
+  <pre><code>tl.addLabel("start")
+  .to(".box1", { x: 100, duration: 1 })
+  .addLabel("middle")
+  .to(".box2", { y: 100, duration: 1 })
+  .to(".box3", { rotation: 360, duration: 1 }, "middle+=0.5");  // 0.5s après le label "middle"</code></pre>
+</section>
