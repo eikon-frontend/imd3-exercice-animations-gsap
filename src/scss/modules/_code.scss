@@ -4,6 +4,37 @@
   margin: 2rem 0;
   border-left: 4px solid var(--color-theory);
 
+  summary {
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    h2 {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      &::before {
+        content: "▶";
+        display: inline-block;
+        font-size: 0.75em;
+        color: var(--color-theory);
+        transition: transform 0.2s ease;
+      }
+    }
+  }
+
+  &[open] summary h2::before {
+    transform: rotate(90deg);
+  }
+
+  &[open] summary {
+    margin-bottom: 1rem;
+  }
+
   h3 {
     color: var(--color-theory);
     margin-top: 2rem;

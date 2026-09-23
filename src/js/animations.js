@@ -4,7 +4,7 @@ const animations = () => {
     Exercices JavaScript : animer avec
     la bibliothèque GSAP
    ----------------------------------------------
-    Installer GSAP
+    Importer GSAP dans ce fichier
    ---------------------------------------------- */
     /* -----------------------
     Exercice 1
@@ -22,7 +22,7 @@ const animations = () => {
     /* -----------------------
     Exercice 3
    -----------------------
-    Changer l'item 3 d'échelle (75%)
+    Diminuer l'échelle de l'item 3 à 0.75
     et d'opacité (0.5)
     durant 2 secondes
     après un délai de 1 secondes
@@ -30,7 +30,7 @@ const animations = () => {
     /* -----------------------
     Exercice 4
    -----------------------
-    Rétablir l'item 4 DEPUIS une échelle de 75%
+    Rétablir l'item 4 DEPUIS une échelle de 0.75
     et d'opacité (0.5)
     durant 2 secondes
     après un délai de 1 secondes
@@ -50,7 +50,7 @@ const animations = () => {
    -----------------------
     Déplacer l'item 6 de 100px vers le bas
     durant 3 secondes
-    ET SIMULTANEMENT changer l'item 6 d'échelle (75%)
+    ET SIMULTANEMENT changer l'item 6 d'échelle (0.75)
     durant 5 secondes
    ----------------------- */
     /* -----------------------

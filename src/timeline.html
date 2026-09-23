@@ -6,29 +6,7 @@
 
         <extends src="partials/theory-timeline.html"></extends>
 
-        <section>
-          <div class="l-content-wrapper">
-            <h2 class="l-h2">Consigne</h2>
-            <p>
-              Depuis <code>js/timeline.js</code>, écrivez le code JavaScript
-              pour créer des animations avec des timelines GSAP selon les
-              indications de chaque exercice.
-            </p>
-            <p>
-              <b
-                >Chaque exercice doit utiliser une timeline pour séquencer les
-                animations !</b
-              >
-            </p>
-          </div>
-          <div class="l-content-wrapper">
-            <h2 class="l-h2">Exemple</h2>
-            <pre><code>// Créer une timeline et animer plusieurs éléments en séquence
-const tl = gsap.timeline();
-tl.to("#js-timeline-1", { x: 100, duration: 1 })
-  .to("#js-timeline-1", { y: 50, duration: 0.5 }, "-=0.2"); // Commence 0.2s avant la fin de la précédente</code></pre>
-          </div>
-        </section>
+        <extends src="partials/instructions-timeline.html"></extends>
 
         <section class="exercices-container" id="exercice-timeline">
           <article class="item exercise" id="js-timeline-1">

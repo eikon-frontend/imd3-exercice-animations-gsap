@@ -24,7 +24,7 @@ npm run dev
 
 La première série d'exercice se concentre sur les tweens GSAP (= simples animations). A chaque fois, la base théorique est rappelé en amont de l'exercice.
 
-Vous devez uniquement écrire du JavaScript dans le fichier dédié `animations.js`, **à l'exception de l'importation de la librairie GSAP qui doit être faite dans le fichier `main.js`**.
+Vous devez uniquement écrire du JavaScript dans le fichier dédié `animations.js`.
 
 ### Exercice 2
 
@@ -57,7 +57,7 @@ npm install gsap
 Inclure le JS depuis un fichier JS (à indiquer tout en haut du fichier)
 
 ```js
-import gsap from "gsap";
+import { gsap } from "gsap";
 ```
 
 Inclure les éventuels plugins

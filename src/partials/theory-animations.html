@@ -1,7 +1,7 @@
-<section class="section-theory">
-  <h2>Rappel théorique</h2>
+<details class="section-theory">
+  <summary><h2>Rappel théorique</h2></summary>
   <a
-    href="https://www.notion.so/eikon-imd/GSAP-2-Basics-0a05aae687ce4b1bac6d6e1c6cd023f5?source=copy_link"
+    href="https://eikon-imd.notion.site/GSAP-Tweens-animations-simples-3c7709599a8180509ab9c9d9295640bf?pvs=73"
     target="_blank"
     >Lien vers le support de cours sur les animations GSAP</a
   >
@@ -78,26 +78,4 @@ gsap.fromTo(".element",
     <li><code>backgroundColor</code> : Couleur de fond</li>
     <li><code>duration</code> : Durée de l'animation en secondes</li>
   </ul>
-
-  <h3>Timeline - Séquencer les animations</h3>
-  <p>
-    Il peut arriver de vouloir séquencer de multiples animations selon un timing
-    précis.
-  </p>
-  <p>
-    Bien qu'il soit possible d'utiliser la propriété
-    <code>delay</code> pour ceci, GSAP nous fournit un outil plus simple:
-    <code>gsap.timeline()</code>.
-  </p>
-  <p>
-    Une timeline est donc une sorte de container dans lequel on inscrit nos
-    diverses animations selon un timing.
-  </p>
-  <pre><code>// Créer une timeline
-const tl = gsap.timeline();
-
-// Ajouter des animations en séquence
-tl.to(".element1", { x: 100, duration: 1 })
-  .to(".element2", { y: 50, duration: 0.5 })
-  .to(".element3", { rotation: 360, duration: 1 }, "-=0.5"); // Commence 0.5s avant la fin de la précédente</code></pre>
-</section>
+</details>

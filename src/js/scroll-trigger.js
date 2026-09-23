@@ -4,7 +4,9 @@ const scrollTriggerFunc = () => {
     Exercices JavaScript : animations au scroll
     avec GSAP et le plugin ScrollTrigger
    ----------------------------------------------
-    Installer GSAP et ScrollTrigger
+    Importer GSAP et ScrollTrigger en haut du fichier.
+    Attention: n'oubliez pas d'enregistrer (register) ScrollTrigger à GSAP.
+    
     Utiliser les 'markers' pour visualiser les points
     de contact.
    ---------------------------------------------- */
@@ -35,6 +37,9 @@ const scrollTriggerFunc = () => {
     les boîtes [5] et [6] lorsque :
     [5] et [6] apparaissent sur l'écran (leur bord haut
     atteint le bord bas du viewport)
+    
+    Note: un effet parallax signifie que les boîtes se déplacent
+    à des vitesses différentes
    ----------------------- */
     /* -----------------------
     Exercice 4
@@ -65,7 +70,7 @@ const scrollTriggerFunc = () => {
     /* -----------------------
     Exercice 6
    -----------------------
-    Attribuer une class 'highlight' à la boîte [10]
+    Ajouter une class 'highlight' à la boîte [10]
     lorsque :
     [10] est au milieu de l'écran (son milieu atteint
     le milieu du viewport)
@@ -73,7 +78,7 @@ const scrollTriggerFunc = () => {
     /* -----------------------
     🔥🔥 Exercice 7 🔥🔥
    -----------------------
-    Punaiser la boîte [11] à l'écran
+    Punaiser (pin) la boîte [11] à l'écran
     en employant la propriété 'pin', lorsque :
     le parent de [11] est au milieu de l'écran (son milieu atteint
     le milieu du viewport)

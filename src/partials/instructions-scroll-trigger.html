@@ -1,0 +1,27 @@
+<section>
+  <div class="l-content-wrapper">
+    <h2 class="l-h2">Consigne</h2>
+    <p>
+      Depuis <code>js/scroll-trigger.js</code>, écrivez le code JavaScript pour
+      créer des animations au scroll avec le plugin ScrollTrigger de GSAP selon
+      les indications de chaque exercice.
+    </p>
+    <p>
+      Conseil:
+      <b>Utiliser les 'markers' pour visualiser les points de contact.</b>
+    </p>
+  </div>
+  <div class="l-content-wrapper">
+    <h2 class="l-h2">Exemple</h2>
+    <pre><code>// Animation déclenchée par le scroll avec des marqueurs pour débugger
+gsap.to(".box-1", {
+  x: 100,
+  duration: 2,
+  scrollTrigger: {
+    trigger: ".box-1",
+    start: "top center",     // Démarre quand le top de l'élément atteint le centre du viewport
+    markers: true            // Affiche les marqueurs pour visualiser les points de contact
+  }
+});</code></pre>
+  </div>
+</section>
